@@ -18,8 +18,8 @@ function countStudents(filePath) {
     });
     fieldsCount.forEach((students, field) => {
       console.log(`Number of students in ${field}: ${students.length}. List: ${students.join(', ')}`);
-    });}
-  else {
+    });
+  } else {
     throw new Error('Cannot load the database');
   }
 }
