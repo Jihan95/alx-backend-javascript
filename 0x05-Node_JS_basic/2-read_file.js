@@ -15,9 +15,7 @@ function countStudents(filePath) {
       if(!fieldsCount.has(field)) {
         fieldsCount.set(field, []);
       }
-      else {
-        fieldsCount.get(field).push(firstName);
-      }
+      fieldsCount.get(field).push(firstName);
     });
     fieldsCount.forEach((students, field) => {
       console.log(`Number of students in ${field}: ${students.length}. List: ${students.join(', ')}`);
