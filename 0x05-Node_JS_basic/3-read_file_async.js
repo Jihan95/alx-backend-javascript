@@ -8,7 +8,8 @@ function countStudents(filePath) {
 
     fs.readFile(filePath, 'utf-8', (error, data) => {
       if (error) {
-        return reject(new Error('Cannot load the database'));
+        reject(new Error('Cannot load the database'));
+        return null;
       }
 
       const lines = data.split('\n').filter((line) => line.trim() !== '');
@@ -32,6 +33,7 @@ function countStudents(filePath) {
       });
 
       resolve();
+      return null;
     });
   });
 }
