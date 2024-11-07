@@ -35,7 +35,7 @@ function countStudents(filePath) {
       resolve();
       return null;
     });
-  return null;
+    return null;
   });
 }
 
