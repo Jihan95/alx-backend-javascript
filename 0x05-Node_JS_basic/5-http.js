@@ -14,8 +14,8 @@ const app = http.createServer((req, res) => {
           res.end(`This is the list of our students\n${data}`);
         })
         .catch((error) => {
-	  res.end(error.message);
-	});
+          res.end(error.message);
+        });
       break;
     default:
       res.writeHead(404, { 'Content-Type': 'text/plain' });
