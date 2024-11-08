@@ -13,8 +13,8 @@ function countStudents(filePath) {
       }
 
       const lines = data.split('\n').filter((line) => line.trim() !== '');
-      const students = lines.slice(1); // Skip header line
-      console.log(`Number of students: ${students.length}`);
+      const students = lines.slice(1);
+      let output = `Number of students: ${students.length}\n`;
 
       const fieldsCount = new Map();
       students.forEach((student) => {
@@ -29,11 +29,11 @@ function countStudents(filePath) {
       });
 
       fieldsCount.forEach((students, field) => {
-        console.log(`Number of students in ${field}: ${students.length}. List: ${students.join(', ')}`);
+	output += `Number of students in ${field}: ${students.length}. List: ${students.join(', ')}\n`;
       });
 
-      resolve();
-      return null;
+      console.log(output);
+      resolve(output.trim());
     });
     return null;
   });
