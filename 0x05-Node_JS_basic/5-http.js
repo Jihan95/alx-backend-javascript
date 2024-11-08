@@ -10,9 +10,11 @@ const app = http.createServer((req, res) => {
     case '/students':
       countStudents('database.csv')
         .then((data) => {
+          res.writeHead(200, { 'Content-Type': 'text/plain' });
           res.end(`This is the list of our students\n${data}`);
         })
         .catch((error) => {
+          res.writeHead(500, { 'Content-Type': 'text/plain' });
           res.end(error.message);
         });
       break;
