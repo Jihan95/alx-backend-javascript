@@ -8,7 +8,6 @@ const app = http.createServer((req, res) => {
       res.end('Hello Holberton School!');
       break;
     case '/students':
-      res.writeHead(200, { 'Content-type': 'text/plain' });
       countStudents('database.csv')
         .then((data) => {
           res.end(`This is the list of our students\n${data}`);
