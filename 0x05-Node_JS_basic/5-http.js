@@ -9,10 +9,10 @@ const app = http.createServer((req, res) => {
       break;
     case '/students':
       res.writeHead(200, { 'Content-type': 'text/plain' });
-      countStudents("database.csv")
+      countStudents('database.csv')
         .then((data) => {
-          res.end(`This is the list of our students\n${message}`);
-	});
+          res.end(`This is the list of our students\n${data}`);
+        });
       break;
     default:
       res.writeHead(404, { 'Content-Type': 'text/plain' });
