@@ -11,7 +11,7 @@ const app = http.createServer((req, res) => {
       res.writeHead(200, { 'Content-type': 'text/plain' });
       countStudents("database.csv")
         .then((data) => {
-          res.end(data);
+          res.end(`This is the list of our students\n${message}`);
 	});
       break;
     default:
