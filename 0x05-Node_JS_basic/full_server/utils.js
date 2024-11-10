@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-function countStudents(filePath) {
+function readDatabase(filePath) {
   return new Promise((resolve, reject) => {
     if (!fs.existsSync(filePath)) {
       return reject(new Error('Cannot load the database'));
@@ -14,9 +14,7 @@ function countStudents(filePath) {
 
       const lines = data.split('\n').filter((line) => line.trim() !== '');
       const students = lines.slice(1);
-      let output = `Number of students: ${students.length}\n`;
 
-      const fieldsCount = new Map();
       students.forEach((student) => {
         const info = student.split(',');
         const firstName = info[0];
@@ -28,14 +26,12 @@ function countStudents(filePath) {
         fieldsCount.get(field).push(firstName);
       });
 
-      fieldsCount.forEach((students, field) => {
-	output += `Number of students in ${field}: ${students.length}. List: ${students.join(', ')}\n`;
-      });
 
-      resolve(output.trim());
+      console.log(output);
+      resolve(output);
     });
     return null;
   });
 }
 
-module.exports = countStudents;
+module.exports = readDatabase;
